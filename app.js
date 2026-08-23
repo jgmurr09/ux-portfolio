@@ -605,7 +605,7 @@ function beginWelcomeSequence() {
     if (audioState.soundEnabled && audioState.ringtoneAudio && !audioState.ringtoneAudio.paused) {
       rampVolume(audioState.ringtoneAudio, 0.34, 700);
     }
-  }, 2500);
+  }, 5000);
 }
 
 function answerCall() {

@@ -2,7 +2,7 @@ const BASE_SCENE = { width: 1536, height: 1024 };
 
 const SITE_CONFIG = {
   photographyUrl: "https://incandescent-valkyrie-5f6126.netlify.app",
-  introStorageKey: "jm-lab-intro-seen-v6",
+  introStorageKey: "jm-lab-intro-seen-v7",
   professionalHeadshot: "assets/professional-headshot.jpg",
   soundEnabledKey: "jm-lab-sound-enabled-v7",
   musicProgressKey: "jm-lab-home-music-progress",
@@ -138,7 +138,9 @@ const dom = {
   tourProgress: document.getElementById("tourProgress"),
   callPhoto: document.getElementById("callPhoto"),
   callPhotoShell: document.getElementById("callPhotoShell"),
-  soundToggle: document.getElementById("soundToggle")
+  soundToggle: document.getElementById("soundToggle"),
+  welcomeGate: document.getElementById("welcomeGate"),
+  enterLab: document.getElementById("enterLab")
 };
 
 let selectedExperience = null;
@@ -581,6 +583,31 @@ function showIncomingCall(force = false) {
   startComputerRing();
 }
 
+function beginWelcomeSequence() {
+  if (!dom.welcomeGate || !dom.enterLab) return showIncomingCall(false);
+  dom.enterLab.disabled = true;
+  dom.welcomeGate.classList.add("is-entering");
+
+  // Start the media inside the user's click gesture, but keep it silent while
+  // the welcome animation completes. This preserves the audio grant in Safari.
+  if (audioState.soundEnabled && audioState.ringtoneAudio) {
+    audioState.ringtoneAudio.currentTime = 0;
+    audioState.ringtoneAudio.volume = 0;
+    const unlockAttempt = audioState.ringtoneAudio.play();
+    if (unlockAttempt && typeof unlockAttempt.catch === "function") {
+      unlockAttempt.catch(() => { audioState.ringNeedsUnlock = true; });
+    }
+  }
+
+  window.setTimeout(() => {
+    dom.welcomeGate.hidden = true;
+    showIncomingCall(false);
+    if (audioState.soundEnabled && audioState.ringtoneAudio && !audioState.ringtoneAudio.paused) {
+      rampVolume(audioState.ringtoneAudio, 0.34, 700);
+    }
+  }, 2500);
+}
+
 function answerCall() {
   stopComputerRing(false);
   dom.body.classList.remove("is-call-ringing");
@@ -686,6 +713,7 @@ function init() {
   dom.tourNext.addEventListener("click", advanceTour);
   dom.closeIntro.addEventListener("click", endCall);
   dom.replayIntro.addEventListener("click", () => showIncomingCall(true));
+  if (dom.enterLab) dom.enterLab.addEventListener("click", beginWelcomeSequence);
   if (dom.soundToggle) dom.soundToggle.addEventListener("click", () => toggleSound());
   window.addEventListener("resize", positionScene);
   window.addEventListener("beforeunload", saveMusicProgress);
@@ -696,10 +724,9 @@ function init() {
     if (event.key === "Escape" && !dom.callPanel.hidden) return endCall();
     if (event.key === "Escape" && dom.inspectorView.classList.contains("is-active")) returnToIndex();
   });
-  // Put the call on screen and attempt the ringtone immediately.
-  // The rest of the room can continue booting behind it.
   const introAlreadySeen = Boolean(localStorage.getItem(SITE_CONFIG.introStorageKey));
-  if (!introAlreadySeen) showIncomingCall(false);
+  if (!introAlreadySeen && dom.welcomeGate) dom.welcomeGate.hidden = false;
+  else if (!introAlreadySeen) showIncomingCall(false);
 
   bootSequence();
 

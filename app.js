@@ -15,7 +15,7 @@ const artifacts = [
   { id: "P01", title: "Future Mars Habitat Research", experience: "E07", x: 95, y: 250, w: 320, h: 225, asset: "P01_ISS_Operations_Research.png" },
   { id: "P02", title: "XR Mission Control + AI", experience: "E08", x: 200, y: 25, w: 200, h: 215, asset: "P02_Deep_Space_Mission_Design.png" },
   { id: "P03", title: "Watch Floor Experience", experience: "E06", x: 420, y: 55, w: 535, h: 310, asset: "P03_Watch_Floor_Experience.png" },
-  { id: "P04", title: "Reactor Control Room", experience: "E06", x: 1060, y: 655, w: 265, h: 205, asset: "P04_Reactor_Control_Room.png" },
+  { id: "P04", title: "Nuclear Reactor Control Room", experience: "E06", x: 1060, y: 655, w: 265, h: 205, asset: "P04_Reactor_Control_Room.png" },
   { id: "P05", title: "Cockpit Experience", experience: "E05", x: 975, y: 25, w: 295, h: 360, asset: "P05_Cockpit_Experience.png" },
   { id: "P06", title: "Maintenance Documentation", experience: "E04", x: 65, y: 685, w: 410, h: 280, asset: "P06_Maintenance_Documentation.png" },
   { id: "P07", title: "Welcome to 2048", experience: "E03", x: 1295, y: 195, w: 180, h: 305, asset: "P07_Welcome_to_2048.png" },
@@ -100,17 +100,13 @@ const tourSteps = [
   },
   {
     target: ".experience-rail",
-    html: "If you want the fast path, use <strong>My Experiences</strong> on the right. I’ve kept the work chronological and tagged the context — Navy, NASA, or Purdue — so you can orient yourself quickly."
+    html: "If you want to check out my projects, use <strong>My Experiences</strong> on the right. I’ve kept the work chronological and tagged the context by sponsor so you can orient yourself quickly."
   },
   {
     targets: ".hotspot",
     mode: "hotspots",
-    html: "If you want to explore spatially, <strong>hover an object</strong>. Every highlighted artifact is interactive; hover for the scan and project number, then click to open the same project Inspector as the list on the right."
+    html: "If you want to explore spatially, <strong>hover an object</strong>. Every highlighted artifact is interactive; hover for the scan and project number, then click to open the same project in the sidebar."
   },
-  {
-    target: ".primary-nav",
-    html: "From an Inspector, <strong>Open Field Notes</strong> takes you deeper without opening another tab. Research, About, and Resume stay up here whenever you want the conventional route."
-  }
 ];
 
 const dom = {

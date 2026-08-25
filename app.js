@@ -96,7 +96,7 @@ const experiences = [
 const tourSteps = [
   {
     target: "#labStage",
-    html: "<strong>Hey — Jackson here.</strong> I solve problems in complex systems, creating solutions that work in the moments people need them most. You’re sitting at my desk; the objects around you map to real work, research, and experiments."
+    html: "<strong>Hey — Jackson here.</strong> It's great to meet you. I solve problems in complex systems, creating solutions that work in the moments people need them most. You’re sitting at my desk; the objects around you map to real work, research, and experiments."
   },
   {
     target: ".experience-rail",

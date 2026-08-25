@@ -53,7 +53,7 @@ const experiences = [
   },
   {
     id: "E04", number: "04", organization: "U.S. Navy", orgLogo: "assets/orgs/navy.png", kicker: "Design Strategist · Current Practice", year: "2025–2026",
-    title: "Reducing Maintenance Friction",
+    title: "Reducing Maintenance Delays",
     challenge: "Reframing a maintenance experience across documentation, physical work, software, and process instead of treating each touchpoint as a separate problem.",
     role: "Design Strategist", domain: "Maintenance", collaboration: "Operators + engineers", timeframe: "Placeholder",
     methods: ["Contextual Inquiry", "Process Mapping", "Prototyping", "Service Design"],
@@ -61,7 +61,7 @@ const experiences = [
   },
   {
     id: "E05", number: "05", organization: "U.S. Navy", orgLogo: "assets/orgs/navy.png", kicker: "Design Strategist · Human Systems", year: "2025",
-    title: "Cockpit Experience",
+    title: "Enhancing the Cockpit Experience",
     challenge: "Improving an operator experience inside a tightly coupled technical system where attention, controls, and system state all compete for limited bandwidth.",
     role: "Design Strategist", domain: "Aviation", collaboration: "Engineering + operators", timeframe: "Placeholder",
     methods: ["Human Factors", "Interface Research", "Concept Testing", "Systems Design"],
@@ -69,7 +69,7 @@ const experiences = [
   },
   {
     id: "E06", number: "06", organization: "U.S. Navy", orgLogo: "assets/orgs/navy.png", kicker: "Design Strategist · Control Environments", year: "2024–2025",
-    title: "Future Control Rooms",
+    title: "Designing Future Control Rooms",
     challenge: "Exploring how watch floors and control rooms can better support shared awareness, handoffs, and high-tempo coordination across physical controls and team environments.",
     role: "Design Strategist", domain: "Control Rooms", collaboration: "Operators + technical SMEs", timeframe: "Placeholder",
     methods: ["Observation", "Interviewing", "Environment Mapping", "Experience Concepting"],
@@ -77,7 +77,7 @@ const experiences = [
   },
   {
     id: "E07", number: "07", organization: "NASA", orgLogo: "assets/orgs/nasa.png", kicker: "Undergraduate Researcher · NASA-Sponsored", year: "2021–2023",
-    title: "Designing Future Mars Habitats",
+    title: "Imagining Futuristic Mars Habitats",
     challenge: "Studying ISS operations, astronauts, and flight-control work to inform human-centered concepts for future long-duration Mars habitats.",
     role: "Undergraduate Researcher / Designer", domain: "Space Habitats", collaboration: "NASA-sponsored student research", timeframe: "Multi-year research",
     methods: ["Expert Interviews", "Systems Research", "XR Prototyping", "Mission Design"],
